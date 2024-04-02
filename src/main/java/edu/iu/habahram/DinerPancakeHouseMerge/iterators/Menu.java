@@ -1,9 +1,7 @@
-package edu.iu.habahram.DinerPancakeHouseMerge.iterators;
-
-import edu.iu.habahram.DinerPancakeHouseMerge.model.MenuItem;
+package edu.iu.habahram.DinerPancakeHouseMerge.model;
 
 import java.util.Iterator;
 
 public interface Menu {
-    public Iterator<MenuItem> createIterator();
+    Iterator<MenuItem> createIterator();
 }
