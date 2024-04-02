@@ -1,5 +1,8 @@
 package edu.iu.habahram.DinerPancakeHouseMerge.model;
 
+import edu.iu.habahram.DinerPancakeHouseMerge.iterators.DinerMenuIterator;
+import edu.iu.habahram.DinerPancakeHouseMerge.iterators.Iterator;
+
 public class DinerMenu {
     static final int MAX_ITEMS = 6;
     int numberOfItems = 0;
@@ -36,10 +39,12 @@ public class DinerMenu {
         }
     }
 
-    public MenuItem[] getMenuItems() {
-        return menuItems;
+    public Iterator createIterator(){
+        return new DinerMenuIterator(menuItems);
     }
 
+
+    // what do i do with this??
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         for(MenuItem item: getMenuItems()) {

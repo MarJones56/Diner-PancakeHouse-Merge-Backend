@@ -1,4 +1,6 @@
 package edu.iu.habahram.DinerPancakeHouseMerge.model;
+import edu.iu.habahram.DinerPancakeHouseMerge.iterators.Iterator;
+import edu.iu.habahram.DinerPancakeHouseMerge.iterators.PancakeHouseIterator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,12 +39,11 @@ public class PancakeHouseMenu {
         menuItems.add(menuItem);
     }
 
-    public List<MenuItem> getMenuItems() {
-        return menuItems;
+    public Iterator createIterator(){
+        return new PancakeHouseIterator(menuItems);
     }
 
-
-
+    // what do i do with this??
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         for(MenuItem item: getMenuItems()) {
