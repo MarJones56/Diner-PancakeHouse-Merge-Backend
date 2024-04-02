@@ -1,11 +1,13 @@
 package edu.iu.habahram.DinerPancakeHouseMerge.model;
-import edu.iu.habahram.DinerPancakeHouseMerge.iterators.Iterator;
+import edu.iu.habahram.DinerPancakeHouseMerge.iterators.DinerMenuIterator;
+import edu.iu.habahram.DinerPancakeHouseMerge.iterators.Menu;
 import edu.iu.habahram.DinerPancakeHouseMerge.iterators.PancakeHouseIterator;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class PancakeHouseMenu {
+public class PancakeHouseMenu implements Menu {
     List<MenuItem> menuItems;
 
     public PancakeHouseMenu() {
@@ -39,9 +41,6 @@ public class PancakeHouseMenu {
         menuItems.add(menuItem);
     }
 
-    public Iterator createIterator(){
-        return new PancakeHouseIterator(menuItems);
-    }
 
     // what do i do with this??
     public String toString() {
@@ -50,6 +49,10 @@ public class PancakeHouseMenu {
             stringBuilder.append(item.toString());
         }
         return  stringBuilder.toString();
+    }
+
+    public Iterator<MenuItem> createIterator() {
+        return new PancakeHouseIterator(menuItems);
     }
 
     // other menu methods here

@@ -2,11 +2,8 @@ package edu.iu.habahram.DinerPancakeHouseMerge.iterators;
 
 import edu.iu.habahram.DinerPancakeHouseMerge.model.MenuItem;
 
-import java.util.List;
+import java.util.Iterator;
 
-public interface Iterator {
-    boolean hasNext();
-    Object next();
+public interface Menu {
+    public Iterator<MenuItem> createIterator();
 }
-
-
