@@ -34,6 +34,23 @@ public class Menu extends MenuComponent {
     }
 
     public MenuItem[] getItems() {
-        return null;
+        ArrayList<MenuItem> itemsList = new ArrayList<>();
+
+        Iterator<MenuComponent> iterator = menuComponents.iterator();
+        while (iterator.hasNext()) {
+            MenuComponent component = iterator.next();
+            if (component instanceof MenuItem) {
+                itemsList.add((MenuItem) component);
+            } else if (component instanceof Menu) {
+                MenuItem[] subItems = ((Menu) component).getItems();
+                for (MenuItem subItem : subItems) {
+                    itemsList.add(subItem);
+                }
+            }
+        }
+
+        MenuItem[] itemsArray = new MenuItem[itemsList.size()];
+        itemsArray = itemsList.toArray(itemsArray);
+        return itemsArray;
     }
 }
